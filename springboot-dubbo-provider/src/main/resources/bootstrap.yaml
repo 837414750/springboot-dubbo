@@ -23,6 +23,7 @@ spring:
             group: DEFAULT_GROUP
             refresh: true
 
+#dubbo 配置可以直接放在Nacos中，放在shard-configs下面可以直接注入
 dubbo:
   registry:
     address: nacos://${nacosServer}?namespace=${namespaceId}
@@ -34,6 +35,12 @@ dubbo:
   application:
     name: ${spring.application.name}
   #此处也可以设置指定的元空间的地址,如果不设置 则默认将元数据推送到dubbo的注册中心(配置中心)
+  #metadata-report:
+   #    address: redis://default:${redis.password:heg666}@${redis.host:192.168.31.130}:${redis.port:6379}
+   # address: nacos://${nacosServer}?namespace=${namespace.bus}
+   # username: nacos
+   # password: nacos
+   # group: metadata
 
 ---
 ################################--------------dev-------------##################################################
